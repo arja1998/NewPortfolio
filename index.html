@@ -12,6 +12,33 @@
         
 </head>
 
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+
+<script>
+(function(){
+    emailjs.init(HbvFwZXeQ3vDEAw8h); 
+})();
+
+document.getElementById("contact-form").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    emailjs.sendForm(
+        service_ka1ghrv,     
+        template_640kebw,   
+        this
+    ).then(() => {
+        document.getElementById("form-status").innerText =
+            "Message sent successfully!";
+        this.reset();
+    }, (error) => {
+        document.getElementById("form-status").innerText =
+            "Failed to send message. Try again.";
+        console.error(error);
+    });
+});
+</script>
+
+
 <body>
     
 
@@ -51,7 +78,7 @@
     <p>I am a passionate and detail-oriented Web Developer with expertise in HTML, CSS, Bootstrap, JavaScript, PHP, and MySQL. I have hands-on experience building responsive, user-friendly websites and applications, along with a basic working knowledge of Laravel and WordPress.</p>
     <div class="social">
         <a href="#"><i class="fa-brands fa-facebook"></i></a>
-        <a href="https://github.com/arja1998/arja1998" target="_blank"><i class="fa-brands fa-github"></i></a>
+        <a href="https://github.com/arja1998" target="_blank"><i class="fa-brands fa-github"></i></a>
         <a href="https://www.linkedin.com/in/arijit-koley-15886810a/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
     </div>
     <div class="btn-grp">
@@ -99,120 +126,214 @@
 
         <div class="skill-box">
             <h3>Backend Development</h3>
-            <p>
-                Laravel, PHP, MVC Architecture, Routing, Middleware,
-                Authentication & Authorization, REST APIs
-            </p>
+          <p class="skill-icons">
+        <i class="fa-brands fa-laravel" title="Laravel"></i>
+        <i class="fa-brands fa-php" title="PHP"></i>
+        <i class="fa-solid fa-code-branch" title="MVC Architecture"></i>
+        <i class="fa-solid fa-route" title="Routing"></i>
+        <i class="fa-solid fa-shield-halved" title="Auth"></i>
+        <i class="fa-solid fa-plug" title="REST API"></i>
+        </p>
         </div>
 
         <div class="skill-box">
             <h3>Database</h3>
-            <p>
-                MySQL, Database Design, Migrations, Seeders,
-                Eloquent ORM, Query Optimization
-            </p>
+                <p class="skill-icons">
+        <i class="fa-solid fa-database" title="MySQL"></i>
+        <i class="fa-solid fa-table" title="Database Design"></i>
+        <i class="fa-solid fa-arrows-rotate" title="Migrations"></i>
+        <i class="fa-solid fa-seedling" title="Seeders"></i>
+        <i class="fa-solid fa-layer-group" title="Eloquent ORM"></i>
+    </p>
         </div>
 
         <div class="skill-box">
             <h3>Frontend</h3>
-            <p>
-                HTML5, CSS3, Bootstrap 5, Blade Templates,
-                Responsive Design
-            </p>
+             <p class="skill-icons">
+        <i class="fa-brands fa-html5" title="HTML5"></i>
+        <i class="fa-brands fa-css3-alt" title="CSS3"></i>
+        <i class="fa-brands fa-bootstrap" title="Bootstrap"></i>
+        <i class="fa-brands fa-laravel" title="Blade Templates"></i>
+        <i class="fa-solid fa-mobile-screen" title="Responsive Design"></i>
+    </p>
         </div>
 
         <div class="skill-box">
             <h3>Tools & Workflow</h3>
-            <p>
-                Git, GitHub, VS Code, Postman,
-                Basic Linux & Deployment
-            </p>
+             <p class="skill-icons">
+        <i class="fa-brands fa-git-alt" title="Git"></i>
+        <i class="fa-brands fa-github" title="GitHub"></i>
+        <i class="fa-solid fa-code" title="VS Code"></i>
+        <i class="fa-solid fa-paper-plane" title="Postman"></i>
+        <i class="fa-brands fa-linux" title="Linux"></i>
+    </p>
         </div>
 
     </div>
+    
 </section>
 
 
     
     <!--skills part ends-->
 
-    <section class="projects" id="projects">
-    <h2 class="heading">My <span>Projects</span></h2>
+    <!--project part starts-->
+
+<section class="projects" id="projects">
+    <h2 class="heading">Projects</h2>
 
     <div class="projects-container">
 
+        <!-- Project 1 -->
         <div class="project-card">
-            <h3>Visitor Entry Management System - VisitTrack</h3>
-            <p>
-                A Laravel-based system to manage visitor logs with admin & security roles,
-                authentication, and MySQL database.
+            <h3> VisitTrack - Visitor Entry Management System</h3>
+
+            <p class="project-icons">
+                <i class="fa-brands fa-laravel" title="Laravel"></i>
+                <i class="fa-brands fa-php" title="PHP"></i>
+                <i class="fa-solid fa-database" title="MySQL"></i>
             </p>
 
-            <div class="tech-stack">
-                <span>Laravel</span>
-                <span>MySQL</span>
-                <span>Blade</span>
-                <span>Bootstrap</span>
-            </div>
+            <p class="project-desc">
+                Secure visitor check-in system with role-based access, logs, and admin dashboard.
+            </p>
 
             <div class="project-links">
-                <a href=https://github.com/arja1998/VisitTrack.git target="_blank">
+                <a href="https://github.com/arja1998/VisitTrack" target="_blank">
                     <i class="fa-brands fa-github"></i> GitHub
                 </a>
             </div>
         </div>
 
+        <!-- Project 2 -->
         <div class="project-card">
-            <h3>Blog Management System - Blogify</h3>
-            <p>
-                A full-featured blog application with admin panel, categories, tags,
-                authentication, and CRUD operations.
+            <h3>Restaurant Table Booking System</h3>
+
+            <p class="project-icons">
+                
+                <i class="fa-brands fa-php" title="PHP"></i>
+                <i class="fa-brands fa-bootstrap" title="Bootstrap"></i>
             </p>
 
-            <div class="tech-stack">
-                <span>Laravel</span>
-                <span>MySQL</span>
-                <span>Blade</span>
-            </div>
+            <p class="project-desc">
+                Online table reservation system with booking management and admin control.
+            </p>
 
             <div class="project-links">
-                <a href=https://github.com/arja1998/Blogify.git target="_blank">
+                <a href="https://github.com/arja1998/Resturant-table-booking-system" target="_blank">
                     <i class="fa-brands fa-github"></i> GitHub
                 </a>
             </div>
         </div>
+
+        <!-- Project 3 -->
+        <div class="project-card">
+            <h3>Blogify-Blog Management System</h3>
+
+            <p class="project-icons">
+                <i class="fa-brands fa-laravel" title="Laravel"></i>
+                <i class="fa-brands fa-php" title="PHP"></i>
+                <i class="fa-solid fa-database" title="MySQL"></i>
+            </p>
+
+            <p class="project-desc">
+                Multi-user blog platform with authentication, categories, tags, and roles.
+            </p>
+
+            <div class="project-links">
+                <a href="https://github.com/arja1998/Blogify" target="_blank">
+                    <i class="fa-brands fa-github"></i> GitHub
+                </a>
+            </div>
+        </div>
+         <!-- Project 4 -->
+        <div class="project-card">
+            <h3>CRM Application using Php</h3>
+
+            <p class="project-icons">
+                
+                <i class="fa-brands fa-php" title="PHP"></i>
+                <i class="fa-solid fa-database" title="MySQL"></i>
+            </p>
+
+            <p class="project-desc">
+                Built a web-based CRM application that enables businesses to manage customer interactions.
+            </p>
+
+            <div class="project-links">
+                <a href="https://github.com/arja1998/CRM" target="_blank">
+                    <i class="fa-brands fa-github"></i> GitHub
+                </a>
+            </div>
+        </div>
+
+             <!-- Project 5 -->
+        <div class="project-card">
+            <h3>E-commerce Website Using php</h3>
+
+            <p class="project-icons">
+                
+                <i class="fa-brands fa-php" title="PHP"></i>
+                <i class="fa-solid fa-database" title="MySQL"></i>
+            </p>
+
+            <p class="project-desc">
+                Built a fully functional e-commerce platform using PHP and MySQL with a focus on secure user authentication and smooth shopping experience.
+            </p>
+
+            <div class="project-links">
+                <a href="https://github.com/arja1998/E-commerce-Website" target="_blank">
+                    <i class="fa-brands fa-github"></i> GitHub
+                </a>
+            </div>
+        </div>
+
+        <!-- Project 6 -->
+
+         <div class="project-card">
+            <h3>Employee Management System using Laravel</h3>
+
+            <p class="project-icons">
+                <i class="fa-brands fa-laravel" title="Laravel"></i>
+                <i class="fa-brands fa-php" title="PHP"></i>
+                <i class="fa-solid fa-database" title="MySQL"></i>
+            </p>
+
+            <p class="project-desc">
+                Built a Laravel web application for employee management featuring role-based authorization.
+            </p>
+
+            <div class="project-links">
+                <a href="https://github.com/arja1998/Employee-Management-System" target="_blank">
+                    <i class="fa-brands fa-github"></i> GitHub
+                </a>
+            </div>
+        </div>
+
+
 
     </div>
 </section>
 
+
+ <!--project part ends-->
     
     <!--contact part strat-->
     
     <section class="contact" id="contact">
-    
-        <h2 class="heading">Contact <span>me</span></h2>
-        
-        <form action="">
-            <div class="input-group">
-                <div class="input-box">
-                    <input type="text" placeholder="Full Name">
-                    <input type="email" placeholder="email">
-                </div>
-    
-                <div class="input-box">
-                    <input type="number" placeholder="phone number">
-                    <input type="text" placeholder="subject">
-                </div>
-    
-            </div>
-            <div class="input-group-2">
-    
-                <textarea name="" id="" placeholder="your messege"></textarea>
-                <input type="submit" value="send Messege" class="btn" >
-            </div>
-    
-        </form>
-    </section>
+    <h2 class="heading">Contact <span>Me</span></h2>
+
+    <form id="contact-form">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <textarea name="message" placeholder="Your Message" required></textarea>
+
+        <button type="submit">Send Message</button>
+    </form>
+
+    <p id="form-status"></p>
+</section>
+
     
     <!--contact part ends-->
     
