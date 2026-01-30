@@ -446,3 +446,83 @@ section{
 .project-links a i {
     margin-right: 6px;
 }
+
+/* =========================
+   MOBILE RESPONSIVE STYLES
+   ========================= */
+
+@media (max-width: 768px) {
+
+    /* General spacing */
+    section {
+        padding: 4rem 2rem;
+    }
+
+    .heading {
+        font-size: 2.8rem;
+        text-align: center;
+    }
+
+    /* ===== SKILLS SECTION ===== */
+
+    .skills-container {
+        grid-template-columns: 1fr;
+    }
+
+    .skill-box {
+        text-align: center;
+    }
+
+    .skill-icons {
+        justify-content: center;
+        font-size: 2.4rem;
+        gap: 1.2rem;
+    }
+
+    /* ===== PROJECTS SECTION ===== */
+
+    .projects-container {
+        grid-template-columns: 1fr;
+    }
+
+    .project-card {
+        padding: 2rem;
+    }
+
+    .project-icons {
+        justify-content: center;
+        font-size: 2.2rem;
+    }
+
+    .project-desc {
+        text-align: center;
+    }
+
+    .project-links {
+        text-align: center;
+    }
+
+    /* ===== CONTACT SECTION ===== */
+
+    #contact-form {
+        width: 100%;
+        padding: 0 1rem;
+    }
+
+    #contact-form input,
+    #contact-form textarea {
+        font-size: 1.4rem;
+    }
+
+    /* ===== NAVBAR (if present) ===== */
+
+    .navbar {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+}
+.skill-icons i,
+.project-icons i {
+    padding: 0.5rem;
+}
