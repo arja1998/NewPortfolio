@@ -38,6 +38,192 @@ document.getElementById("contact-form").addEventListener("submit", function(e) {
 });
 </script>
 
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+    const toggleBtn = document.getElementById("theme-toggle");
+    const icon = toggleBtn.querySelector("i");
+
+    // Load saved theme
+    if (localStorage.getItem("theme") === "light") {
+        document.body.classList.add("light-theme");
+        icon.classList.remove("fa-moon");
+        icon.classList.add("fa-sun");
+    }
+
+    toggleBtn.addEventListener("click", () => {
+        document.body.classList.toggle("light-theme");
+
+        if (document.body.classList.contains("light-theme")) {
+            icon.classList.remove("fa-moon");
+            icon.classList.add("fa-sun");
+            localStorage.setItem("theme", "light");
+        } else {
+            icon.classList.remove("fa-sun");
+            icon.classList.add("fa-moon");
+            localStorage.setItem("theme", "dark");
+        }
+    });
+
+});
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+    const projectsData = {
+        visittrack: {
+            title: "Visittrack-Visitor Entry Management System",
+            description: "System to manage visitor entry with roles and logs.",
+            features: [
+                "Visitor check-in / check-out",
+                "Role-based access",
+                "Admin dashboard"
+            ],
+            tech: "Laravel, PHP, MySQL",
+            image:"images/visittrack.png"
+        },
+
+        restaurant: {
+            title: "Restaurant Table Booking System",
+            description: "Online booking system for restaurants.",
+            features: [
+                "Table booking",
+                "Admin control",
+                "Responsive UI"
+            ],
+            tech: "Laravel, PHP, Bootstrap",
+            image:"images/rtbs.png"
+        },
+
+        blog: {
+            title: "Blogify-Blog Management System",
+            description: "Multi-user blog platform with roles.",
+            features: [
+                "Authentication",
+                "Categories & tags",
+                "CRUD posts"
+            ],
+            tech: "Laravel, PHP, MySQL",
+            image:"images/blogify.png"
+},
+    crm: {
+    title: "CRM Application using PHP",
+    description: "Web-based CRM application to manage customer interactions and business leads.",
+    features: [
+        "Customer management",
+        "Lead tracking",
+        "Admin dashboard"
+    ],
+    tech: "PHP, MySQL",
+    image: "images/crm.png"
+},
+
+ecommerce: {
+    title: "E-commerce Website using PHP",
+    description: "Online shopping platform with product management and secure authentication.",
+    features: [
+        "Product listing",
+        "Shopping cart",
+        "Order management"
+    ],
+    tech: "PHP, MySQL",
+    image: "images/e-commerce.png"
+},
+
+employee: {
+    title: "Employee Management System using Laravel",
+    description: "Laravel-based employee management system with role-based authorization.",
+    features: [
+        "Employee CRUD",
+        "Role-based access",
+        "Admin dashboard"
+    ],
+    tech: "Laravel, PHP, MySQL",
+    image: ''
+}
+
+
+        
+    };
+
+    const modal = document.getElementById("projectModal");
+    const title = document.getElementById("modal-title");
+    const desc = document.getElementById("modal-description");
+    const features = document.getElementById("modal-features");
+    const tech = document.getElementById("modal-tech");
+    
+
+    const closeBtn = document.querySelector(".close-modal");
+
+    document.querySelectorAll(".open-modal").forEach(card => {
+        card.addEventListener("click", () => {
+            const key = card.dataset.project;
+            const project = projectsData[key];
+
+            if (!project) return;
+
+            title.textContent = project.title;
+            desc.textContent = project.description;
+            tech.textContent = project.tech;
+
+            document.getElementById("modal-image").src = project.image;
+
+            features.innerHTML = "";
+            project.features.forEach(f => {
+                const li = document.createElement("li");
+                li.textContent = f;
+                features.appendChild(li);
+            });
+
+            modal.classList.add("active");
+        });
+    });
+
+    closeBtn.addEventListener("click", () => {
+        modal.classList.remove("active");
+    });
+
+    modal.addEventListener("click", e => {
+        if (e.target === modal) {
+            modal.classList.remove("active");
+        }
+    });
+    
+
+});
+</script>
+
+
+
+<div class="project-modal" id="projectModal">
+    <div class="modal-content">
+        <span class="close-modal">&times;</span>
+
+        <div class="modal-body">
+
+            <!-- LEFT SIDE -->
+            <div class="modal-left">
+                <h1 id="modal-title"></h1>
+                <p id="modal-description"></p>
+
+                <h4>Key Features</h4>
+                <ul id="modal-features"></ul>
+
+                <h4>Tech Stack</h4>
+                <p id="modal-tech"></p>
+            </div>
+
+            <!-- RIGHT SIDE -->
+            <div class="modal-image-wrapper">
+        <img id="modal-image" src="" alt="Project Screenshot">
+    </div>
+
+        </div>
+    </div>
+</div>
+
+
 
 <body>
     
@@ -48,6 +234,8 @@ document.getElementById("contact-form").addEventListener("submit", function(e) {
         <header class="header">
             <a href="#home" class="logo">ARIJIT <span>KOLEY</span> </a>
             <i class="fa-solid fa-box" id="menu-icon"></i>
+
+            
             <nav class="navbar">
                 <a href="#home">Home</a>
                 <a href="#about">About</a>
@@ -55,6 +243,10 @@ document.getElementById("contact-form").addEventListener("submit", function(e) {
                 <a href="#projects">Projects</a>
                 <a href="#contact">Contact</a>
         </nav>
+        <div class="theme-toggle" id="theme-toggle">
+       <i class="fa-solid fa-moon"></i>
+      </div>
+
      </header>
      </div>
     
@@ -184,29 +376,30 @@ document.getElementById("contact-form").addEventListener("submit", function(e) {
 
     <div class="projects-container">
 
-        <!-- Project 1 -->
-        <div class="project-card">
-            <h3> VisitTrack - Visitor Entry Management System</h3>
+<!-- Project 1 -->
 
-            <p class="project-icons">
-                <i class="fa-brands fa-laravel" title="Laravel"></i>
-                <i class="fa-brands fa-php" title="PHP"></i>
-                <i class="fa-solid fa-database" title="MySQL"></i>
-            </p>
+<div class="project-card open-modal" data-project="visittrack">
+    <h3>Visitor Entry Management System</h3>
 
-            <p class="project-desc">
-                Secure visitor check-in system with role-based access, logs, and admin dashboard.
-            </p>
+    <p class="project-icons">
+        <i class="fa-brands fa-laravel"></i>
+        <i class="fa-brands fa-php"></i>
+        <i class="fa-solid fa-database"></i>
+    </p>
 
-            <div class="project-links">
-                <a href="https://github.com/arja1998/VisitTrack" target="_blank">
+    <p class="project-desc">
+        Secure visitor check-in system with admin control.
+    </p>
+     <div class="project-links">
+                <a href="https://github.com/arja1998/Resturant-table-booking-system" target="_blank">
                     <i class="fa-brands fa-github"></i> GitHub
                 </a>
-            </div>
-        </div>
+     </div>
+</div>
+
 
         <!-- Project 2 -->
-        <div class="project-card">
+        <div class="project-card open-modal" data-project="restaurant">
             <h3>Restaurant Table Booking System</h3>
 
             <p class="project-icons">
@@ -227,7 +420,7 @@ document.getElementById("contact-form").addEventListener("submit", function(e) {
         </div>
 
         <!-- Project 3 -->
-        <div class="project-card">
+        <div class="project-card open-modal" data-project="blog">
             <h3>Blogify-Blog Management System</h3>
 
             <p class="project-icons">
@@ -247,7 +440,7 @@ document.getElementById("contact-form").addEventListener("submit", function(e) {
             </div>
         </div>
          <!-- Project 4 -->
-        <div class="project-card">
+        <div class="project-card open-modal" data-project="crm">
             <h3>CRM Application using Php</h3>
 
             <p class="project-icons">
@@ -268,7 +461,7 @@ document.getElementById("contact-form").addEventListener("submit", function(e) {
         </div>
 
              <!-- Project 5 -->
-        <div class="project-card">
+        <div class="project-card open-modal" data-project="ecommerce">
             <h3>E-commerce Website Using php</h3>
 
             <p class="project-icons">
@@ -290,7 +483,7 @@ document.getElementById("contact-form").addEventListener("submit", function(e) {
 
         <!-- Project 6 -->
 
-         <div class="project-card">
+         <div class="project-card open-modal" data-project="employee" >
             <h3>Employee Management System using Laravel</h3>
 
             <p class="project-icons">
